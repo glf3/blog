@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="TreeSet阅读源码的JDK版本基于JDK1.812public class TreeSet&amp;lt;E&amp;gt; extends AbstractSet&amp;lt;E&amp;gt;    implements NavigableSet&amp;lt;E&amp;gt;, Cloneable, java.io.Serializable TreeSet继承自AbstractSet、实现了NavigableSet&amp;lt; E &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阅读源码计划：TreeSet源码分析">
+<meta property="og:url" content="https://lingfeng.art/2019/06/10/analyze-treeset/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="TreeSet阅读源码的JDK版本基于JDK1.812public class TreeSet&amp;lt;E&amp;gt; extends AbstractSet&amp;lt;E&amp;gt;    implements NavigableSet&amp;lt;E&amp;gt;, Cloneable, java.io.Serializable TreeSet继承自AbstractSet、实现了NavigableSet&amp;lt; E &amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-10T08:25:22.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阅读源码计划：TreeSet源码分析">
+<meta name="twitter:description" content="TreeSet阅读源码的JDK版本基于JDK1.812public class TreeSet&amp;lt;E&amp;gt; extends AbstractSet&amp;lt;E&amp;gt;    implements NavigableSet&amp;lt;E&amp;gt;, Cloneable, java.io.Serializable TreeSet继承自AbstractSet、实现了NavigableSet&amp;lt; E &amp;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2019/06/10/analyze-treeset/">
+
+
+
+
+
+  <title>阅读源码计划：TreeSet源码分析 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/06/10/analyze-treeset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阅读源码计划：TreeSet源码分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-10T10:49:58+08:00">
+                2019-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h1><p>阅读源码的JDK版本基于JDK1.8<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableSet</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure></p>
+<p>TreeSet继承自AbstractSet、实现了NavigableSet&lt; E &gt;接口，它其中的一些核心方法如下所示：</p>
+<ul>
+<li>boolean contains(Object o)</li>
+<li>boolean add(E e)</li>
+<li>boolean remove(Object o)</li>
+<li>Iterator&lt; E &gt; iterator()</li>
+</ul>
+<p>其中iterator返回的Iterator是按照一定顺序排列的，而不是无序的，这也是TreeSet的最大特点：</p>
+<ul>
+<li>插入TreeSet中的键是按照一定顺序排列的。</li>
+</ul>
+<h2 id="关键数据结构"><a href="#关键数据结构" class="headerlink" title="关键数据结构"></a>关键数据结构</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * NavigableMap类型的类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> NavigableMap&lt;E,Object&gt; m;</span><br></pre></td></tr></table></figure>
+<p>NavigableMap是一个有序的Map，在TreeSet中它的实现是TreeMap，并且TreeSet中插入、添加、删除都是委托给TreeMap来完成的。其中关于TreeMap的分析请看我的另外一篇文章<a href="https://lingfeng.art/2019/06/06/analyze-treemap/">阅读源码计划：TreeMap源码分析</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dummy value</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object PRESENT = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure></p>
+<p>和键关联的Dummy Value，用来标记键已存在TreeSet中。</p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><h3 id="boolean-contains-Object-o"><a href="#boolean-contains-Object-o" class="headerlink" title="boolean contains(Object o)"></a>boolean contains(Object o)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns &#123;<span class="doctag">@code</span> true&#125; if this set contains the specified element.</span></span><br><span class="line"><span class="comment"> * More formally, returns &#123;<span class="doctag">@code</span> true&#125; if and only if this set</span></span><br><span class="line"><span class="comment"> * contains an element &#123;<span class="doctag">@code</span> e&#125; such that</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> o object to be checked for containment in this set</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if this set contains the specified element</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> ClassCastException if the specified object cannot be compared</span></span><br><span class="line"><span class="comment"> *         with the elements currently in the set</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if the specified element is null</span></span><br><span class="line"><span class="comment"> *         and this set uses natural ordering, or its comparator</span></span><br><span class="line"><span class="comment"> *         does not permit null elements</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> m.containsKey(o);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>m在TreeSet中是TreeMap类型的，可以看出contains实际的工作实际上就是委托给TreeMap.containsKey来完成的。</p>
+<h3 id="boolean-add-E-e"><a href="#boolean-add-E-e" class="headerlink" title="boolean add(E e)"></a>boolean add(E e)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Adds the specified element to this set if it is not already present.</span><br><span class="line"> * More formally, adds the specified element &#123;@code e&#125; to this set if</span><br><span class="line"> * the set contains no element &#123;@code e2&#125; such that</span><br><span class="line"> * &lt;tt&gt;(e==null&amp;nbsp;?&amp;nbsp;e2==null&amp;nbsp;:&amp;nbsp;e.equals(e2))&lt;/tt&gt;.</span><br><span class="line"> * If this set already contains the element, the call leaves the set</span><br><span class="line"> * unchanged and returns &#123;@code false&#125;.</span><br><span class="line"> *</span><br><span class="line"> * @param e element to be added to this set</span><br><span class="line"> * @return &#123;@code true&#125; if this set did not already contain the specified</span><br><span class="line"> *         element</span><br><span class="line"> * @throws ClassCastException if the specified object cannot be compared</span><br><span class="line"> *         with the elements currently in this set</span><br><span class="line"> * @throws NullPointerException if the specified element is null</span><br><span class="line"> *         and this set uses natural ordering, or its comparator</span><br><span class="line"> *         does not permit null elements</span><br><span class="line"> */</span><br><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    return m.put(e, PRESENT)==null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出add操作同样是委托给TreeMap去完成的。</p>
+<h3 id="boolean-remove-Object-o"><a href="#boolean-remove-Object-o" class="headerlink" title="boolean remove(Object o)"></a>boolean remove(Object o)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Removes the specified element from this set if it is present.</span></span><br><span class="line"><span class="comment"> * More formally, removes an element &#123;<span class="doctag">@code</span> e&#125; such that</span></span><br><span class="line"><span class="comment"> * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;,</span></span><br><span class="line"><span class="comment"> * if this set contains such an element.  Returns &#123;<span class="doctag">@code</span> true&#125; if</span></span><br><span class="line"><span class="comment"> * this set contained the element (or equivalently, if this set</span></span><br><span class="line"><span class="comment"> * changed as a result of the call).  (This set will not contain the</span></span><br><span class="line"><span class="comment"> * element once the call returns.)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> o object to be removed from this set, if present</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if this set contained the specified element</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> ClassCastException if the specified object cannot be compared</span></span><br><span class="line"><span class="comment"> *         with the elements currently in this set</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if the specified element is null</span></span><br><span class="line"><span class="comment"> *         and this set uses natural ordering, or its comparator</span></span><br><span class="line"><span class="comment"> *         does not permit null elements</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> m.remove(o)==PRESENT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样，remove操作也是委托给TreeMap去完成的，具体实现的方式是通过TreeMap中的红黑树执行具体的删除操作。</p>
+<h3 id="Iterator-lt-E-gt-iterator"><a href="#Iterator-lt-E-gt-iterator" class="headerlink" title="Iterator&lt; E &gt; iterator()"></a>Iterator&lt; E &gt; iterator()</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns an iterator over the elements in this set in ascending order.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回一个key升序的iterator</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> m.navigableKeySet().iterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来看一下TreeMap.navigableKeySet.iterator的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** TreeMap</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> NavigableSet&lt;K&gt; <span class="title">navigableKeySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    KeySet&lt;K&gt; nks = navigableKeySet;</span><br><span class="line">    <span class="keyword">return</span> (nks != <span class="keyword">null</span>) ? nks : (navigableKeySet = <span class="keyword">new</span> KeySet&lt;&gt;(<span class="keyword">this</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实际上调用的是KeySet的iterator<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m <span class="keyword">instanceof</span> TreeMap)</span><br><span class="line">        <span class="comment">// keyIterator类型</span></span><br><span class="line">        <span class="keyword">return</span> ((TreeMap&lt;E,?&gt;)m).keyIterator();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> ((TreeMap.NavigableSubMap&lt;E,?&gt;)m).keyIterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看一下keyIterator<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Iterator&lt;K&gt; <span class="title">keyIterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 把TreeMap中的第一个子节点作为KeyIterator的参数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> KeyIterator(getFirstEntry());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>来看一下getFirstEntry：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 返回第一个在TreeMap中的键值对</span></span><br><span class="line"><span class="comment"> * 如果TreeMap为空返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> Entry&lt;K,V&gt; <span class="title">getFirstEntry</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Entry&lt;K,V&gt; p = root;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="keyword">null</span>)</span><br><span class="line">        <span class="comment">// 由于是TreeMap的实现是红黑树</span></span><br><span class="line">        <span class="comment">// 所以第一个节点是树中最左边的子节点</span></span><br><span class="line">        <span class="keyword">while</span> (p.left != <span class="keyword">null</span>)</span><br><span class="line">            p = p.left;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>来看一下KeyIterator这个类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">KeyIterator</span> <span class="keyword">extends</span> <span class="title">PrivateEntryIterator</span>&lt;<span class="title">K</span>&gt; </span>&#123;</span><br><span class="line">    KeyIterator(Entry&lt;K,V&gt; first) &#123;</span><br><span class="line">        <span class="keyword">super</span>(first);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> K <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 返回下一个key</span></span><br><span class="line">        <span class="comment">// 通过二叉搜索树的性质完成</span></span><br><span class="line">        <span class="keyword">return</span> nextEntry().key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过我在TreeMap其中的分析可以知道，实际上TreeSet返回的Iterator是KeyIterator类型的，通过它保证了Iterator的next是有序的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>TreeSet是键有序的特殊Set<ol>
+<li>构造TreeSet可以通过自定义Comparator。</li>
+<li>如果默认Comparator为空，默认key必须实现Comparable这个接口。</li>
+</ol>
+</li>
+<li>TreeSet的插入、删除、查找都是通过TreeMap来完成的。<ol>
+<li>TreeMap内部使用一颗自平衡的二叉查找树)来保存每一个节点，它的插入、查找、删除都是通过红黑树实现的。<br></li>
+</ol>
+</li>
+<li>由于TreeSet内部是使用TreeMap来实现的，所以TreeSet插入的键不能为null。</li>
+<li>TreeSet也不是线程安全的，这个和TreeMap一样。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/06/analyze-treemap/" rel="next" title="阅读源码计划：TreeMap源码分析">
+                <i class="fa fa-chevron-left"></i> 阅读源码计划：TreeMap源码分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeSet"><span class="nav-number">1.</span> <span class="nav-text">TreeSet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">关键数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心方法"><span class="nav-number">1.2.</span> <span class="nav-text">核心方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-contains-Object-o"><span class="nav-number">1.2.1.</span> <span class="nav-text">boolean contains(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-add-E-e"><span class="nav-number">1.2.2.</span> <span class="nav-text">boolean add(E e)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-remove-Object-o"><span class="nav-number">1.2.3.</span> <span class="nav-text">boolean remove(Object o)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-lt-E-gt-iterator"><span class="nav-number">1.2.4.</span> <span class="nav-text">Iterator&lt; E &gt; iterator()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
