@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ARTS第九周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题239. 滑动窗口最大值题意：1234567891011121314151617181920">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arts Week 9">
+<meta property="og:url" content="https://lingfeng.art/2019/03/10/arts-week-09/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="ARTS第九周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题239. 滑动窗口最大值题意：1234567891011121314151617181920">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T02:35:09.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arts Week 9">
+<meta name="twitter:description" content="ARTS第九周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题239. 滑动窗口最大值题意：1234567891011121314151617181920">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2019/03/10/arts-week-09/">
+
+
+
+
+
+  <title>Arts Week 9 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/03/10/arts-week-09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arts Week 9</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T22:40:55+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARTS第九周"><a href="#ARTS第九周" class="headerlink" title="ARTS第九周"></a>ARTS第九周</h1><p>　　<strong>ARTS</strong>，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>本周算法题<a href="https://leetcode-cn.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">239. 滑动窗口最大值</a><br><br><strong>题意</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。</span><br><span class="line"></span><br><span class="line">返回滑动窗口最大值。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">解释: </span><br><span class="line"></span><br><span class="line">  滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[1  3  -1] -3  5  3  6  7       3</span><br><span class="line"> 1 [3  -1  -3] 5  3  6  7       3</span><br><span class="line"> 1  3 [-1  -3  5] 3  6  7       5</span><br><span class="line"> 1  3  -1 [-3  5  3] 6  7       5</span><br><span class="line"> 1  3  -1  -3 [5  3  6] 7       6</span><br><span class="line"> 1  3  -1  -3  5 [3  6  7]      7</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</span><br><span class="line">进阶：</span><br><span class="line">你能在线性时间复杂度内解决此题吗？</span><br></pre></td></tr></table></figure></p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li>求滑动窗口的极值的话可以用单调队列来解决</li>
+</ul>
+<p>单调队列是这样一种数据结构：</p>
+<ol>
+<li>一个这里队列中存储的是窗口最大值的下标。</li>
+<li>如果队列为空，那么就将当前元素的下标添加到队列中</li>
+<li>如果队列不为空，那么就有两种情况：<ol>
+<li>如果当前元素比队尾元素所指向的元素还要大，那么当这个元素进入到滑动窗口，队列尾那些比他小的元素所指向的元素，一定不可能是窗口中的最大值，所以就将队尾这些元素删去，直到队尾元素指向的元素比当前的元素大或者相等，然后将当前元素的下标加入队列。</li>
+<li>如果当前元素比队尾元素所指向的元素要小或者相等，那么就直接将当前元素的下标加入到队列尾。</li>
+</ol>
+</li>
+<li>取的时候，只需要取队列头的元素就可以了，因为那就代表着当前窗口的最大值。取的时候要判断一下：<ol>
+<li>如果队头元素已经是窗口之外了，那么就要将队头出队。</li>
+<li>否则直接取队头元素就可以了，它就是窗口中最大值对应的下标。</li>
+</ol>
+</li>
+</ol>
+<p>具体代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        ArrayDeque&lt;Integer&gt; queue = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length-k+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">                <span class="keyword">while</span> (!queue.isEmpty() &amp;&amp; nums[queue.peekLast()] &lt; nums[i]) &#123;</span><br><span class="line">                    queue.pollLast();</span><br><span class="line">                &#125;</span><br><span class="line">                queue.offerLast(i);</span><br><span class="line">                <span class="keyword">while</span> (queue.peekFirst() &lt;= i-k) &#123;</span><br><span class="line">                    queue.pollFirst();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span> &gt;= k) &#123;</span><br><span class="line">                    res[idx++] = nums[queue.peekFirst()];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// for(int i = 0; i &lt; idx; i++) &#123;</span></span><br><span class="line">            <span class="comment">//     System.out.print(res[i] + " ");</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周阅读了一篇Medium上的文章<a href="https://medium.com/fiverr-engineering/creating-apis-for-the-human-developer-c0f51a6d9366" target="_blank" rel="noopener">《Creating APIs for the human developer》</a><br><br>作者介绍了一下编写API时需要注意一些最佳实践。</p>
+<h3 id="什么才是好的API"><a href="#什么才是好的API" class="headerlink" title="什么才是好的API"></a>什么才是好的API</h3><ul>
+<li>完成了它的工作</li>
+<li>它能够很简单与便于使用</li>
+<li>它能够很安全的使用</li>
+</ul>
+<h4 id="完成了它的工作"><a href="#完成了它的工作" class="headerlink" title="完成了它的工作"></a>完成了它的工作</h4><p>这是API存在的意义和价值，它聚焦与问题并且解决了它。</p>
+<h4 id="它很容易理解并且便于使用"><a href="#它很容易理解并且便于使用" class="headerlink" title="它很容易理解并且便于使用"></a>它很容易理解并且便于使用</h4><p>一个好的API是依据使用它的客户的现有的知识去打造的。如果需要做到便于使用的话，它需要遵守以下规则：</p>
+<ul>
+<li>尊重它所在的平台：比如Javascript是用驼峰原则书写的，那么如果你编写一个Javascript的工具的话也得遵守这个原则。</li>
+<li>遵守一定的规则</li>
+<li>不要提供太多的选项：保持API的简单是很有必要的，如果它需要扩展的话那么就扩展，如果不需要的话那么就去掉。不提供冗余的功能可以让你的用户更快、更容易的使用好它。</li>
+</ul>
+<h4 id="能够安全的使用"><a href="#能够安全的使用" class="headerlink" title="能够安全的使用"></a>能够安全的使用</h4><p>你的API一定不能给用户引入BUG，因此需要遵循一下规范。</p>
+<ul>
+<li>当操作有危险时，显示的声明它：有时候你直接了当的声明这个API可能造成的错误可以帮助用户在编写代码时发现可能意外的情况。</li>
+<li>需要友好地执行：永远不要去拿到不属于自己的资源，因为你不能保证没有人在用它们。</li>
+<li>智能的捕获错误：当你捕获错误的时候，需要写一份文档把对应的错误一一列举错来，这样用户可以很方便的发现出现了什么样的错误。</li>
+<li>防止继承：这是为了防止出现内部没有声明的接口被暴露出来，引起不必要的麻烦。</li>
+</ul>
+<h3 id="如何设计一个好的API"><a href="#如何设计一个好的API" class="headerlink" title="如何设计一个好的API"></a>如何设计一个好的API</h3><h4 id="组织自己的哲学"><a href="#组织自己的哲学" class="headerlink" title="组织自己的哲学"></a>组织自己的哲学</h4><p>应该知道主要是解决什么样的问题，完全理解它，不要引入冗余的功能。</p>
+<h5 id="做一些核心的决定"><a href="#做一些核心的决定" class="headerlink" title="做一些核心的决定"></a>做一些核心的决定</h5><p>比如说是否使用Promises？这是同步还是异步的接口？是否组织用户的数据或者是返回一个新的对象？是否使用类还是普通功能？静态变量还是临时变量？</p>
+<h5 id="管理接口的版本和使用弃用的策略"><a href="#管理接口的版本和使用弃用的策略" class="headerlink" title="管理接口的版本和使用弃用的策略"></a>管理接口的版本和使用弃用的策略</h5><p>有时候当需要弃用一个老旧接口的时候，最佳的策略并不是删除所有的接口，而是在接口后面加一个flag比如–legacy或者–insecure这样显式的声明这个接口已经被弃用。</p>
+<h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><h5 id="永远不要让实现泄露了接口设计里面内容"><a href="#永远不要让实现泄露了接口设计里面内容" class="headerlink" title="永远不要让实现泄露了接口设计里面内容"></a>永远不要让实现泄露了接口设计里面内容</h5><p>如果让用户通过接口名称知道了接口设计里面的内容的话，当你下一版重构需要重新改写功能的时候会很麻烦，因为你会发现之前的名字与它实际干的工作并不是一致的。</p>
+<h4 id="把文档写详细"><a href="#把文档写详细" class="headerlink" title="把文档写详细"></a>把文档写详细</h4><p>很多时候用户并不会去翻阅文档，只有当下面情况发生的时候才会。</p>
+<ul>
+<li>他们需要拷贝一份快速使用导航</li>
+<li>当有一部分功能没生效的时候</li>
+</ul>
+<p>当你的文档写的不是特别好的时候，不管你的接口怎样出色的完成的它的工作，用户永远不知道发生了什么。同样，发生错误的代码和信息也得写清楚。这样会帮助用户定位他们的问题。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>设计接口的话永远是一个不断权衡的过程：提供功能和防止它们做出损害自己之间做权衡。<br><br>找到平衡并不总是那么容易，你永远不能取悦每个人。只要记得你实际上正在为其他人构建工具，那些恰好是软件开发人员的人，那么你就正朝着正确的方向前进。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>之前的项目有很成熟的MVP框架，但商城中是没有现成的框架的，这次在写商城短视频项目的时候简单的写了一个MVP的框架，总结一下。</p>
+<h3 id="MVP架构设计"><a href="#MVP架构设计" class="headerlink" title="MVP架构设计"></a>MVP架构设计</h3><p>无论是MVP还是MVVM。架构的设计都是为了对付后期不断变化的需求还有减小后期的维护成本和解耦来做的。</p>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p>可以是Fragment或者是Activity，View中仅仅只做与展示相关的工作，它实现了View -&gt; Presenter接口，它通过使用Presenter来获取数据，因为实现了让Presenter可以很方便的调它的接口来实现回调数据。</p>
+<h3 id="Presenter"><a href="#Presenter" class="headerlink" title="Presenter"></a>Presenter</h3><p>主要的业务逻辑其实都放在这里面，比如处理数据和网络请求，还有一些脏活，累活都是它来做。它实现了Presenter -&gt; Model的接口，这样当Model有数据回调时可以告诉它。</p>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>具体获取数据的实现，可以是网络请求也可以是数据库操作，总之与数据打交道都是它来处理。它实现了Model -&gt; Presenter接口。</p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>分享一篇Instagram技术架构的文章<a href="http://blogread.cn/it/article/5497?f=wb_news" target="_blank" rel="noopener">《Instagram的技术架构》</a></p>
+<p>在Instagram被收购的前一个月，整个团队才7个人，简直不可思议，现在来看一下当时Instagram用到的技术。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/19/thread-safety/" rel="next" title="线程安全">
+                <i class="fa fa-chevron-left"></i> 线程安全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/arts-week-10/" rel="prev" title="Arts Week 10">
+                Arts Week 10 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARTS第九周"><span class="nav-number">1.</span> <span class="nav-text">ARTS第九周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-number">1.2.</span> <span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么才是好的API"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么才是好的API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完成了它的工作"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">完成了它的工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#它很容易理解并且便于使用"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">它很容易理解并且便于使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#能够安全的使用"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">能够安全的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设计一个好的API"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何设计一个好的API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组织自己的哲学"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">组织自己的哲学</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#做一些核心的决定"><span class="nav-number">1.2.2.1.1.</span> <span class="nav-text">做一些核心的决定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#管理接口的版本和使用弃用的策略"><span class="nav-number">1.2.2.1.2.</span> <span class="nav-text">管理接口的版本和使用弃用的策略</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#永远不要让实现泄露了接口设计里面内容"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">永远不要让实现泄露了接口设计里面内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把文档写详细"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">把文档写详细</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.3.</span> <span class="nav-text">Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP架构设计"><span class="nav-number">1.3.1.</span> <span class="nav-text">MVP架构设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">1.3.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presenter"><span class="nav-number">1.3.3.</span> <span class="nav-text">Presenter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">1.3.4.</span> <span class="nav-text">Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">1.4.</span> <span class="nav-text">Share</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

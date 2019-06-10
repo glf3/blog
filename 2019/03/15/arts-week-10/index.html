@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ARTS第十周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题721. 账户合并题意：1234567891011121314151617181920212">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arts Week 10">
+<meta property="og:url" content="https://lingfeng.art/2019/03/15/arts-week-10/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="ARTS第十周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题721. 账户合并题意：1234567891011121314151617181920212">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T02:35:09.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arts Week 10">
+<meta name="twitter:description" content="ARTS第十周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题721. 账户合并题意：1234567891011121314151617181920212">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2019/03/15/arts-week-10/">
+
+
+
+
+
+  <title>Arts Week 10 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/03/15/arts-week-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arts Week 10</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T17:41:56+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARTS第十周"><a href="#ARTS第十周" class="headerlink" title="ARTS第十周"></a>ARTS第十周</h1><p>　　<strong>ARTS</strong>，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>本周算法题<a href="https://leetcode-cn.com/problems/accounts-merge/" target="_blank" rel="noopener">721. 账户合并</a><br><br><strong>题意</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">给定一个列表 accounts，每个元素 accounts[i] 是一个字符串列表，其中第一个元素 accounts[i][0] 是 名称 (name)，其余元素是 emails 表示该帐户的邮箱地址。</span><br><span class="line"></span><br><span class="line">现在，我们想合并这些帐户。如果两个帐户都有一些共同的邮件地址，则两个帐户必定属于同一个人。请注意，即使两个帐户具有相同的名称，它们也可能属于不同的人，因为人们可能具有相同的名称。一个人最初可以拥有任意数量的帐户，但其所有帐户都具有相同的名称。</span><br><span class="line"></span><br><span class="line">合并帐户后，按以下格式返回帐户：每个帐户的第一个元素是名称，其余元素是按顺序排列的邮箱地址。accounts 本身可以以任意顺序返回。</span><br><span class="line"></span><br><span class="line">例子 1:</span><br><span class="line"></span><br><span class="line">Input: </span><br><span class="line">accounts = [[&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john00@mail.com&quot;], [&quot;John&quot;, &quot;johnnybravo@mail.com&quot;], [&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john_newyork@mail.com&quot;], [&quot;Mary&quot;, &quot;mary@mail.com&quot;]]</span><br><span class="line">Output: [[&quot;John&quot;, &apos;john00@mail.com&apos;, &apos;john_newyork@mail.com&apos;, &apos;johnsmith@mail.com&apos;],  [&quot;John&quot;, &quot;johnnybravo@mail.com&quot;], [&quot;Mary&quot;, &quot;mary@mail.com&quot;]]</span><br><span class="line">Explanation: </span><br><span class="line">  第一个和第三个 John 是同一个人，因为他们有共同的电子邮件 &quot;johnsmith@mail.com&quot;。 </span><br><span class="line">  第二个 John 和 Mary 是不同的人，因为他们的电子邮件地址没有被其他帐户使用。</span><br><span class="line">  我们可以以任何顺序返回这些列表，例如答案[[&apos;Mary&apos;，&apos;mary@mail.com&apos;]，[&apos;John&apos;，&apos;johnnybravo@mail.com&apos;]，</span><br><span class="line">  [&apos;John&apos;，&apos;john00@mail.com&apos;，&apos;john_newyork@mail.com&apos;，&apos;johnsmith@mail.com&apos;]]仍然会被接受。</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line"></span><br><span class="line">accounts的长度将在[1，1000]的范围内。</span><br><span class="line">accounts[i]的长度将在[1，10]的范围内。</span><br><span class="line">accounts[i][j]的长度将在[1，30]的范围内。</span><br></pre></td></tr></table></figure></p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li>使用两个并查集，其中一个并查集维护下标与下标之间的关系，另外一个并查集维护邮件与邮件之间的关系。</li>
+<li>如果两个账户的邮件有相同的，那么将两个下标相同的合并。</li>
+<li>最终输出结果的时候，通过下标的并查集去取得最终结果。</li>
+<li>第一次提交超时了，后来使用了给并查集的路径压缩和加权优化才过了。<ol>
+<li>定义M为和合并的次数，N为点的个数。</li>
+<li>未使用加权优化最坏时间复杂度O(MN)</li>
+<li>使用加权优化的最坏时间复杂度O(MlogN)</li>
+</ol>
+</li>
+<li>关于<a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" target="_blank" rel="noopener">并查集</a>看这里</li>
+</ul>
+<p>具体代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">UnionFindSet</span> </span>&#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> maxn = <span class="number">1000</span> * <span class="number">10</span> + <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">int</span> fa[] = <span class="keyword">new</span> <span class="keyword">int</span>[maxn];</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">int</span> rank[] = <span class="keyword">new</span> <span class="keyword">int</span> [maxn];</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxn; i++) &#123;</span><br><span class="line">                    fa[i] = i;</span><br><span class="line">                    rank[i] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> fa[x] != x? fa[x] = find(fa[x]) : x;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">int</span> fax = find(x);</span><br><span class="line">                <span class="keyword">int</span> fay = find(y);</span><br><span class="line">                <span class="keyword">if</span> (fax != fay) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (rank[fax] &lt; rank[fay]) &#123;</span><br><span class="line">                        fa[fax] = fa[fay];</span><br><span class="line">                        rank[fay] += rank[fax];</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        fa[fay] = fa[fax];</span><br><span class="line">                        rank[fax] += rank[fay];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> UnionFindSet mEmailUnionFindSet = <span class="keyword">new</span> UnionFindSet();</span><br><span class="line">        <span class="keyword">private</span> UnionFindSet mIndexUnionFindSet = <span class="keyword">new</span> UnionFindSet();</span><br><span class="line">        <span class="keyword">private</span> List&lt;List&lt;String&gt;&gt; mAnswer = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">private</span> Map&lt;String, Integer&gt; mEmailMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mSize;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">preinit</span><span class="params">(List&lt;List&lt;String&gt;&gt; accounts)</span> </span>&#123;</span><br><span class="line">            mSize = accounts.size();</span><br><span class="line">            mEmailUnionFindSet.init();</span><br><span class="line">            mIndexUnionFindSet.init();</span><br><span class="line">            mAnswer.clear();</span><br><span class="line">            mEmailMap.clear();</span><br><span class="line">            <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">/* 赋予Email整数下标 */</span></span><br><span class="line">            <span class="keyword">for</span>(List&lt;String&gt; account : accounts) &#123;</span><br><span class="line">                <span class="keyword">int</span> size = account.size();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; size; j++) &#123;</span><br><span class="line">                    String key = account.get(j);</span><br><span class="line">                    <span class="keyword">if</span> (!mEmailMap.containsKey(key)) &#123;</span><br><span class="line">                        mEmailMap.put(key, ++idx);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/* 将同一个名字Email下的合并 */</span></span><br><span class="line">            <span class="keyword">for</span>(List&lt;String&gt; account : accounts) &#123;</span><br><span class="line">                <span class="keyword">int</span> size = account.size();</span><br><span class="line">                <span class="keyword">if</span> (size &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> ;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> mergeIdxOne = mEmailMap.get(account.get(<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; size; i++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> mergeIdxTwo = mEmailMap.get(account.get(i));</span><br><span class="line">                    mEmailUnionFindSet.union(mergeIdxOne, mergeIdxTwo);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">canMerge</span><span class="params">(List&lt;String&gt; lhs, List&lt;String&gt; rhs)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">boolean</span> canMerge = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lhs.size(); i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> mergeIdxOne = mEmailMap.get(lhs.get(i));</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; rhs.size(); j++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> mergeIdxTwo = mEmailMap.get(rhs.get(j));</span><br><span class="line">                    <span class="keyword">if</span> (mEmailUnionFindSet.find(mergeIdxOne) == mEmailUnionFindSet.find(mergeIdxTwo)) &#123;</span><br><span class="line">                        canMerge = <span class="keyword">true</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> canMerge;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doMerge</span><span class="params">(List&lt;String&gt; lhs, List&lt;String&gt; rhs, <span class="keyword">int</span> idxOne, <span class="keyword">int</span> idxTwo)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">false</span> == canMerge(lhs, rhs)) &#123;</span><br><span class="line">                <span class="keyword">return</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">            mIndexUnionFindSet.union(idxOne, idxTwo);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lhs.size(); i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> mergeIdxOne = mEmailMap.get(lhs.get(i));</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; rhs.size(); j++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> mergeIdxTwo = mEmailMap.get(rhs.get(j));</span><br><span class="line">                    mEmailUnionFindSet.union(mergeIdxOne, mergeIdxTwo);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> List&lt;List&lt;String&gt;&gt; generateAnswers(List&lt;List&lt;String&gt;&gt; accounts) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mSize; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> fai = mIndexUnionFindSet.find(i);</span><br><span class="line">                <span class="keyword">if</span> (i != fai) &#123;</span><br><span class="line">                    List&lt;String&gt; emails = accounts.get(i);</span><br><span class="line">                    emails.remove(<span class="number">0</span>);</span><br><span class="line">                    accounts.get(fai).addAll(emails);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mSize; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mIndexUnionFindSet.find(i) == i) &#123;</span><br><span class="line">                    TreeSet&lt;String&gt; treeSet = <span class="keyword">new</span> TreeSet&lt;&gt;(accounts.get(i));</span><br><span class="line">                    List&lt;String&gt; account = <span class="keyword">new</span> ArrayList&lt;&gt;(treeSet);</span><br><span class="line">                    mAnswer.add(account);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> mAnswer;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> List&lt;List&lt;String&gt;&gt; solve(List&lt;List&lt;String&gt;&gt; accounts) &#123;</span><br><span class="line">            <span class="keyword">if</span> (accounts == <span class="keyword">null</span> || accounts.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">return</span> mAnswer;</span><br><span class="line">            &#125;</span><br><span class="line">            preinit(accounts);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mSize; i++) &#123;</span><br><span class="line">                List&lt;String&gt; lhs = accounts.get(i);</span><br><span class="line">                String nameOne = lhs.get(<span class="number">0</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; mSize; j++) &#123;</span><br><span class="line">                    List&lt;String&gt; rhs = accounts.get(j);</span><br><span class="line">                    String nameTwo = rhs.get(<span class="number">0</span>);</span><br><span class="line">                    <span class="keyword">if</span> (nameOne.equals(nameTwo)) &#123;</span><br><span class="line">                        doMerge(lhs, rhs, i, j);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> generateAnswers(accounts);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; accountsMerge(List&lt;List&lt;String&gt;&gt; accounts) &#123;</span><br><span class="line">            <span class="keyword">return</span> solve(accounts);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周阅读了一篇Medium上的文章<a href="https://medium.com/swlh/cookies-vs-localstorage-whats-the-difference-d99f0eb09b44" target="_blank" rel="noopener">《Cookies vs. LocalStorage: What’s the difference?》</a><br></p>
+<p>在相当长的一段时间内，Cookies被作为用户浏览App和WebSite之间存储信息的一种方式，它经常被用于记录购物的状态或者是记录用户浏览的习惯。然而在HTML5中引入了LocalStorage作为存储的另外一个选项。它和SessionStorage一样，都比Cookies能够存储的大得多，达到了5MB。</p>
+<h3 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h3><p>什么是Cookies？根据网页端存储在用户电脑上的一些文件，它最大的容量是4KB。Cookies被用在了不同的方向上，比如存储用户浏览过的网页或者是用户的登录信息。它被限制为只能存储字符串。它经常被用于记录用户的登录信息，或者是根据用户的浏览习惯定制适用于用户的一些服务。</p>
+<h4 id="两种不同的Cookies"><a href="#两种不同的Cookies" class="headerlink" title="两种不同的Cookies"></a>两种不同的Cookies</h4><p>第一种是Persistent Cookies，第二种是SessionCookies。</p>
+<h5 id="SessionCookies"><a href="#SessionCookies" class="headerlink" title="SessionCookies"></a>SessionCookies</h5><p>SessionCookies存储周期很短，只要浏览器被关闭，那么它们就被丢失了，这种类型的Cookies经常被用于在银行中导航的凭证，浏览器一关闭，信息也就丢失了。</p>
+<h5 id="Persistent-Cookies"><a href="#Persistent-Cookies" class="headerlink" title="Persistent Cookies"></a>Persistent Cookies</h5><p>Persistent Cookies他们有一个截止的期限，它们可以存储到截止的期限然后被删除。它们可以用于记录用户的访问习惯，以便于大型的网站根据它们去提升用户的体验。</p>
+<h3 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h3><p>当HTML5出来之后，很多使用Cookies的地方都被LocalStorage取代了。因为它相较于Cookies有很多的优点，一个很重要的原因是，传输数据的时候不用每一次HTTP请求都必须包括它。这节省了很多数据带宽，这是因为数据存储在用户的本地硬盘上它不会因为网络的链接或者断开被销毁或者被清除。还有一点是它的容量很大，达到了5MB，这比Cookies的4KB要大很多。<br><br>LocalStorage从某一方面来说更像是Persistent Cookies。它除了存储String之外，也可以存储Javascript对象。</p>
+<h4 id="LocalStorage的使用"><a href="#LocalStorage的使用" class="headerlink" title="LocalStorage的使用"></a>LocalStorage的使用</h4><p>LocalStorage经常被用于没有持续的网络连接的应用，当然像金融信息这一种是不能用LocalStorage存储的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这些存储方式都有自己的优缺点，在现代Web开发中，两种都有用到。Cookies的话很小，并且每一个发送给Service的HTTP请求中都带上了，而LocalStorage的话存储量更大并且把所有的信息都记录在客户端。当你选择做应用的时候，考虑一下两者的区别然后选择哪一种存储方式才是你需要的。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>最近阅读了这一本书的一些内容<a href="https://book.douban.com/subject/10570841/" target="_blank" rel="noopener">《Android框架揭秘》</a></p>
+<ul>
+<li>复习了Android Binder IPC的知识</li>
+<li>复习了Android Service Framework中主要构成和运行机制。</li>
+<li>复习了Native Service Framework之间的机制与交互过程。</li>
+<li>复习了Java Service Framework之间的机制与交互过程。</li>
+</ul>
+<p>服务框架(Service Framework)中包含了所有框架(Framework)的特征。</p>
+<ol>
+<li>通过扩展而非修改框架添加新的功能；</li>
+<li>使用框架实现的应用的应用程序控制流由框架控制而非程序自身控制。</li>
+</ol>
+<p>　　在Android中，许多服务通过扩展而非修改服务框架来实现，并且服务的动作控制流也是由服务框架所决定的，所实现的服务只是按照内部定义的方式进行运作，若开发者采用任意的方法开发服务，那么开发出的服务将无法在系统中运行，即只能使用Android提供的类与已经定义好的方法。<br><br>Android Service Framework包括两部分：</p>
+<ol>
+<li>Native Service Framework</li>
+<li>Java Service Framework，其中Application Framework(应用程序框架)包括了Java Service Framework。</li>
+</ol>
+<p>　　其中Application Framework中的电源管理(PowerManager)，包管理(PackageManager)等Java服务都是使用Java服务框架(Java Service Framework)实现的，而Surface Flinger这类本地系统服务都是使用本地服务框架(Native Service Framework)实现的。但是HAL(Hardware Abstraction Layer)、Linux设备驱动、Dalvik虚拟机等都不包括在“服务框架”(Service Framework)中。<br><br>　　C++层的服务框架(Native Service Framework)和Java层的服务框架(Java Service Framework)的运行方式和实现方式都不同，它们之间通过JNI本地函数进行交互。<br><br>　　最近发现之前认为自己习以为常的一些知识还是不能很清晰的表述出来，比如线程安全的知识，Android系统的一些知识，还是得好好学习，多多总结。</p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>分享一篇文章<a href="https://zhuanlan.zhihu.com/p/58983619?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="noopener">《Docker扫盲篇》</a><br><br>文章介绍了Docker技术的一些基础概念，旨在让更多人认识到Docker技术的魅力和潜力，但并不涉及具体Docker技术的实现和使用。Docker虽然说是一个技术，但其思想也是值得大家学习和品味。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/10/arts-week-09/" rel="next" title="Arts Week 9">
+                <i class="fa fa-chevron-left"></i> Arts Week 9
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/arts-week-11/" rel="prev" title="Arts Week 11">
+                Arts Week 11 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARTS第十周"><span class="nav-number">1.</span> <span class="nav-text">ARTS第十周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-number">1.2.</span> <span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies"><span class="nav-number">1.2.1.</span> <span class="nav-text">Cookies</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两种不同的Cookies"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">两种不同的Cookies</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SessionCookies"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">SessionCookies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Persistent-Cookies"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">Persistent Cookies</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LocalStorage"><span class="nav-number">1.2.2.</span> <span class="nav-text">LocalStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LocalStorage的使用"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">LocalStorage的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.3.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">1.4.</span> <span class="nav-text">Share</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

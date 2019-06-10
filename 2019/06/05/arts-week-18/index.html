@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ARTS第十八周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题8. 字符串转换整数 (atoi)题意：1234567891011121314151617">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arts Week 18">
+<meta property="og:url" content="https://lingfeng.art/2019/06/05/arts-week-18/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="ARTS第十八周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题8. 字符串转换整数 (atoi)题意：1234567891011121314151617">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T02:35:09.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arts Week 18">
+<meta name="twitter:description" content="ARTS第十八周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题8. 字符串转换整数 (atoi)题意：1234567891011121314151617">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2019/06/05/arts-week-18/">
+
+
+
+
+
+  <title>Arts Week 18 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/06/05/arts-week-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arts Week 18</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T00:15:14+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARTS第十八周"><a href="#ARTS第十八周" class="headerlink" title="ARTS第十八周"></a>ARTS第十八周</h1><p>　　<strong>ARTS</strong>，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>本周算法题<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">8. 字符串转换整数 (atoi)</a><br><br><strong>题意</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">请你来实现一个 atoi 函数，使其能将字符串转换成整数。</span><br><span class="line"></span><br><span class="line">首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</span><br><span class="line"></span><br><span class="line">当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</span><br><span class="line"></span><br><span class="line">该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</span><br><span class="line"></span><br><span class="line">注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</span><br><span class="line"></span><br><span class="line">在任何情况下，若函数不能进行有效的转换时，请返回 0。</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"></span><br><span class="line">假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，qing返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: &quot;42&quot;</span><br><span class="line">输出: 42</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: &quot;   -42&quot;</span><br><span class="line">输出: -42</span><br><span class="line">解释: 第一个非空白字符为 &apos;-&apos;, 它是一个负号。</span><br><span class="line">     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</span><br><span class="line">示例 3:</span><br><span class="line"></span><br><span class="line">输入: &quot;4193 with words&quot;</span><br><span class="line">输出: 4193</span><br><span class="line">解释: 转换截止于数字 &apos;3&apos; ，因为它的下一个字符不为数字。</span><br><span class="line">示例 4:</span><br><span class="line"></span><br><span class="line">输入: &quot;words and 987&quot;</span><br><span class="line">输出: 0</span><br><span class="line">解释: 第一个非空字符是 &apos;w&apos;, 但它不是数字或正、负号。</span><br><span class="line">     因此无法执行有效的转换。</span><br><span class="line">示例 5:</span><br><span class="line"></span><br><span class="line">输入: &quot;-91283472332&quot;</span><br><span class="line">输出: -2147483648</span><br><span class="line">解释: 数字 &quot;-91283472332&quot; 超过 32 位有符号整数范围。 </span><br><span class="line">     因此返回 INT_MIN (−231) 。</span><br></pre></td></tr></table></figure></p>
+<p><strong>分析</strong>：<br><br>根据题意来解决即可，细心一点。我一次提交就通过了还是很有成就感的哈哈。</p>
+<ul>
+<li>首先删除字符串str前置空格，判断字符串str是否为空，为空return 0。</li>
+<li>对每一个在字符串str中的字符c进行循环枚举，有两种选择：<ol>
+<li>如果c为数字：添加进结果字符串validString中，并且标记已<strong>遇上数字</strong>。</li>
+<li>如果c为字符：<ol>
+<li>如果已经遇上数字，退出循环。</li>
+<li>如果没有遇上数字，并且当前没有记录正负号。<ol>
+<li>当字符c等于’+’或者是’-‘，用enum类型sign记录下符号类型。</li>
+<li>标记当前字符串str不合法，退出循环。</li>
+</ol>
+</li>
+<li>如果没有遇上数字，但已经记录了正负号，那么直接退出循环。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>删除结果字符串validString的<strong>前置0</strong>，如果validString为空，return 0。</li>
+<li>通过Java中的BigInteger判断结果字符串validString大小是否大于整形最大值(2^31-1)即可，而不需要判断是否小于整形的最小值(-2^31)，原因为什么大家可以思考一下。如果溢出的话，通过enum类型的sign判断符号类型，return 对应的极大/小值即可。</li>
+<li>如果没有溢出，通过enum类型的sign判断符号类型，然后返回结果字符串validString对应的正/负数即可。</li>
+</ul>
+<p><strong>具体代码</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> java.math.BigInteger MIN_VAL = java.math.BigInteger.valueOf(Integer.MIN_VALUE);</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> java.math.BigInteger MAX_VAL = java.math.BigInteger.valueOf(Integer.MAX_VALUE);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">enum</span> SIGN &#123;</span><br><span class="line">            POSITIVE,</span><br><span class="line">            NEGATIVE,</span><br><span class="line">            UNKNOWN</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">extractValidInteger</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isEmptyString(str) </span><br><span class="line">                || isEmptyString(str = deletePrefixSpace(str))) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> length = str.length();</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            SIGN sign = SIGN.UNKNOWN;</span><br><span class="line">            <span class="keyword">boolean</span> isValidString = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">boolean</span> meetNumber = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">                <span class="keyword">char</span> c = str.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (!isDigit(c)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (meetNumber == <span class="keyword">true</span></span><br><span class="line">                        || sign != SIGN.UNKNOWN) &#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">switch</span>(c) &#123;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">                            sign = SIGN.POSITIVE;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">                            sign = SIGN.NEGATIVE;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">default</span>:</span><br><span class="line">                            sign = SIGN.UNKNOWN;</span><br><span class="line">                            isValidString = <span class="keyword">false</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    sb.append(c);</span><br><span class="line">                    meetNumber = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!isValidString) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            String validString = sb.toString();</span><br><span class="line">            <span class="keyword">if</span> (isEmptyString(validString = deletePrefixZero(validString))) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isBeyondIntegerRange(validString)) &#123;</span><br><span class="line">                <span class="keyword">return</span> sign == SIGN.NEGATIVE? MIN_VAL.intValue() : MAX_VAL.intValue();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> result = <span class="keyword">new</span> java.math.BigInteger(validString).intValue();</span><br><span class="line">            <span class="keyword">return</span> sign == SIGN.NEGATIVE? -result : result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">deletePrefixSpace</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> length = str.length();</span><br><span class="line">            <span class="keyword">for</span>(; i &lt; length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (str.charAt(i) != <span class="string">' '</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> str.substring(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">deletePrefixZero</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> length = str.length();</span><br><span class="line">            <span class="keyword">for</span>(; i &lt; length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (str.charAt(i) != <span class="string">'0'</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> str.substring(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isBeyondIntegerRange</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            java.math.BigInteger bi = <span class="keyword">new</span> java.math.BigInteger(str);</span><br><span class="line">            <span class="keyword">if</span> (bi.compareTo(MAX_VAL) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isDigit</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> c &gt;= <span class="string">'0'</span> &amp;&amp; c &lt;= <span class="string">'9'</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isEmptyString</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> extractValidInteger(str);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周计划阅读一篇Medium上的文章<a href="https://codeburst.io/how-i-started-in-web-development-8f61da839e92" target="_blank" rel="noopener">《How I Started in Web Development》</a><br><br>// TODO 晚一点总结文章大意</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>本周计划阅读TreeSet的源码，并写一篇关于它的技术文章。<br><br>// TODO</p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>本周分享一篇文章<a href="https://www.oschina.net/question/12_52027" target="_blank" rel="noopener">《初学 Java Web 开发，请远离各种框架，从 Servlet 开发》</a><br><br>最近在学Java Web相关的一些知识。<br><br>我从Spring开始学起，看了<a href="https://book.douban.com/subject/26767354/" target="_blank" rel="noopener">《Spring实战（第4版）》</a>几个章节的内容，同时也在看<a href="https://book.douban.com/subject/3351927/" target="_blank" rel="noopener">《Tomcat与Java Web开发技术详解（第2版）》</a>这一本书籍上的内容，中途看到了这一篇文章，觉得很不错，在这里分享一下。<br><br>文章的大概内容：<br><br>建议Java Web的初学者刚开始从Servlet开始学起，不要着急去学框架，学习路径如下所示：<br></p>
+<ul>
+<li>打好Java编程基础</li>
+<li>环境准备Eclipse + Tomcat</li>
+<li>了解Servlet和Filter</li>
+<li>明确Servlet和HTTP的对应关系</li>
+<li>熟知HTTP协议</li>
+</ul>
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><p>Web框架是开发者在使用某种语言编写Web应用服务端时关于架构的最佳实践。很多Web框架是从实际的Web项目抽取出来的，仅和Web的请求和响应处理有关，形成一个基础，在开发别的应用项目的时候则可以从这个剥离出来的基础做起，让开发者更关注更具体的业务问题，而不是Web的请求和响应的控制。<br><br>学习Java Web开发时，不要一开始就学习框架，先打好Java基础，从Servlet规范开始学起，慢慢熟悉Servlet规范，然后再去学习相关的框架。<br></p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/04/arts-week-17/" rel="next" title="Arts Week 17">
+                <i class="fa fa-chevron-left"></i> Arts Week 17
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/06/analyze-treemap/" rel="prev" title="阅读源码计划：TreeMap源码分析">
+                阅读源码计划：TreeMap源码分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARTS第十八周"><span class="nav-number">1.</span> <span class="nav-text">ARTS第十八周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-number">1.2.</span> <span class="nav-text">Review</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.3.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">1.4.</span> <span class="nav-text">Share</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下"><span class="nav-number">1.4.1.</span> <span class="nav-text">总结一下</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

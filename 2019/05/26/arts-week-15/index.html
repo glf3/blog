@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ARTS第十五周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题783. 二叉搜索树结点最小距离题意：12345678910111213141516171">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arts Week 15">
+<meta property="og:url" content="https://lingfeng.art/2019/05/26/arts-week-15/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="ARTS第十五周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题783. 二叉搜索树结点最小距离题意：12345678910111213141516171">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T02:35:09.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arts Week 15">
+<meta name="twitter:description" content="ARTS第十五周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题783. 二叉搜索树结点最小距离题意：12345678910111213141516171">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2019/05/26/arts-week-15/">
+
+
+
+
+
+  <title>Arts Week 15 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/05/26/arts-week-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arts Week 15</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T23:56:00+08:00">
+                2019-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARTS第十五周"><a href="#ARTS第十五周" class="headerlink" title="ARTS第十五周"></a>ARTS第十五周</h1><p>　　<strong>ARTS</strong>，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>本周算法题<a href="https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/" target="_blank" rel="noopener">783. 二叉搜索树结点最小距离</a><br><br><strong>题意</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">给定一个二叉搜索树的根结点 root, 返回树中任意两节点的差的最小值。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"></span><br><span class="line">输入: root = [4,2,6,1,3,null,null]</span><br><span class="line">输出: 1</span><br><span class="line">解释:</span><br><span class="line">注意，root是树结点对象(TreeNode object)，而不是数组。</span><br><span class="line"></span><br><span class="line">给定的树 [4,2,6,1,3,null,null] 可表示为下图:</span><br><span class="line"></span><br><span class="line">          4</span><br><span class="line">        /   \</span><br><span class="line">      2      6</span><br><span class="line">     / \    </span><br><span class="line">    1   3  </span><br><span class="line"></span><br><span class="line">最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。</span><br><span class="line">注意：</span><br><span class="line"></span><br><span class="line">二叉树的大小范围在 2 到 100。</span><br><span class="line">二叉树总是有效的，每个节点的值都是整数，且不重复。</span><br></pre></td></tr></table></figure></p>
+<p><strong>分析</strong>：<br><br>没有想到很巧妙的方法，也只能根据题意来做：</p>
+<ul>
+<li>对于一个树Tree，前序遍历得到所有树节点。</li>
+<li>排序</li>
+<li>从左往右枚举得到最小值</li>
+</ul>
+<p>当时没有看清是二叉搜索树，所以用前序遍历去实现的，其实可以用中序遍历得到有序的叶节点，然后从左往右枚举即可。<br><br><strong>具体代码</strong>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> maxn = <span class="number">100</span> + <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">int</span>[] tree = <span class="keyword">new</span> <span class="keyword">int</span>[maxn];</span><br><span class="line">        <span class="keyword">int</span> idx;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            idx = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">                tree[idx++] = root.val;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                preorder(root.left);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                preorder(root.right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDiffInBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">            init();</span><br><span class="line">            preorder(root);</span><br><span class="line">            Arrays.sort(tree, <span class="number">0</span>, idx);</span><br><span class="line">            <span class="keyword">int</span> minVal = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; idx; i++) &#123;</span><br><span class="line">                minVal = Math.min(minVal, tree[i] - tree[i-<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> minVal;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周阅读了一篇Medium上的文章<a href="https://medium.com/javarevisited/10-deadly-mistakes-to-avoid-when-learning-java-aead894e64f4" target="_blank" rel="noopener">《10 Deadly Mistakes to Avoid When Learning Java》</a><br><br>作者在文中总结了初学者在学习Java的过程中经常犯的10个错误还有一些学习Java的建议。</p>
+<h3 id="常犯的错误"><a href="#常犯的错误" class="headerlink" title="常犯的错误"></a>常犯的错误</h3><ul>
+<li>太多的研究阅读，而很少的实践<ol>
+<li>对于编程而言，每天编程和练习是十分必要的，就像你不能通过观看电影歇息舞蹈一样，你得经常练习，并且经过大量的实践你才能掌握它。</li>
+</ol>
+</li>
+<li>学习很多知识，但没有一个明确的目标<ol>
+<li>很多学生学习编程是为了扩大自己的知识面，如果仅仅是靠热情，而不是每天的练习和拥有明确目标的学习的话，编程也许不适合你。</li>
+</ol>
+</li>
+<li>一次性学习太多的技术<ol>
+<li>软件开发这个行业的话拥有着学不完的知识和工具，因此如果想一次学完基本上是不现实的。因此，一个明确的学习目标和计划是必须，比如学习Java核心，一些实际的项目加上一些编程的工具。</li>
+</ol>
+</li>
+<li>三天打鱼，两天晒网<ol>
+<li>对于初学者来说，这种情况是非常不可取的，如果你开始学习一个新的项目，而这个项目需要用到之前你学习的知识的话，而你早已忘记了，因此你就抓瞎了。所以，不间隔的学习是非常必要的。</li>
+</ol>
+</li>
+<li>认为编程仅仅需要了解Java语言<ol>
+<li>对于编程而言，除了语言之外还包括其他技能，比如说：很强的逻辑能力，可视化数据和流程的能力，一个有经验的开发者再想清楚怎么写之前是不会编写代码的。</li>
+</ol>
+</li>
+<li>被某一小部分艰难的理论困住<ol>
+<li>当开始学习Java的时候，坚持对解决一些问题还有一些新的话题是非常重要的，但有时候你得绕绕路去发现真正重要的一些问题。一个友好的建议：不要试图去记住代码或者是太深入钻研代码是怎么工作的。在Java中，很多事情都是自动完成的，因此你可以专注于编程的直观感受，并且变得越来越富有技巧。</li>
+</ol>
+</li>
+<li>忽略的代码可读性的重要程度<ol>
+<li>当你写的代码回过头来阅读的时候，如果你代码的可读性很好的话，不仅仅便于调试与维护，而且便于别人阅读你的代码，毕竟，我们写的代码还是给人看的。</li>
+</ol>
+</li>
+<li>不经常测试自己的代码<ol>
+<li>确保经常测试自己的代码工作正常，而不是通过调试找出出了什么问题或是发生了什么事，每次处理小部分的问题会比一次性解决大量的问题更好。</li>
+</ol>
+</li>
+<li>独自学习Java<ol>
+<li>现在网上有着很多在线的工具和资源，因此个人很容易地成为自学的程序员，唯一缺失的就是交流，如果你经常和人交流的话学习起来会更加有效率。比如Codernch，StackOverFlow，还有Oracle Java Community上面有成千上万的程序员可以交流学习。</li>
+</ol>
+</li>
+<li>认为有一天会知道一切<ol>
+<li>像一个初学者一样聆听更加有经验的同事的教诲，而且不要停止学习。</li>
+</ol>
+</li>
+</ul>
+<h3 id="学习Java的建议"><a href="#学习Java的建议" class="headerlink" title="学习Java的建议"></a>学习Java的建议</h3><ul>
+<li>列出一个明确的目标和计划并且减少干扰<ol>
+<li>明确一个计划之后需要每天分配自己的学习时间。</li>
+</ol>
+</li>
+<li>每天都编程<ol>
+<li>每天练习还有经常使用工具会提高你的编程水平的。</li>
+</ol>
+</li>
+<li>提出正确的问题<ol>
+<li>在遇到问题的时候，说清楚问题是什么，而不是说“有问题发生了，能不能帮忙看一下”。</li>
+</ol>
+</li>
+<li>把你的工作展现出来<ol>
+<li>给别人一个看你成果的机会，比如一个小网站，一个小型的App或者是自己撰写的技术文章。</li>
+</ol>
+</li>
+<li>保持学习，当你学会编程之后<ol>
+<li>保持学习也许是一件很难的事，但有着明确的计划，友好的环境，正确的工具，学习的欲望的话学不会编程都难。</li>
+</ol>
+</li>
+</ul>
+<h3 id="推荐阅读文章"><a href="#推荐阅读文章" class="headerlink" title="推荐阅读文章"></a>推荐阅读文章</h3><ul>
+<li><a href="https://www.freecodecamp.org/news/must-read-books-to-learn-java-programming-327a3768ea2f/" target="_blank" rel="noopener">《10 Books to Learn Java in Depth》</a></li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>本周阅读了EventBus的源码，并写了一篇关于EventBus实现原理的文章，具体请看<a href="https://lingfeng.art/2019/05/26/analyze-eventbus/">《EventBus源码与原理解析》</a>。</p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>本周分享一篇文章<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">《Web 研发模式演变》</a><br><br>之前也大概的了解一下前端、后端的联系与区别，但从来没有详细的了解过它们之间的联系、发展的历史以及趋势，这篇文章给出了Web研发模式之中前端、后端技术架构变化的几个阶段以及背后的原因，是一篇很不错的技术文章。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/26/analyze-eventbus/" rel="next" title="EventBus源码与原理解析">
+                <i class="fa fa-chevron-left"></i> EventBus源码与原理解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/29/analyze-hashset/" rel="prev" title="阅读源码计划：HashSet源码分析">
+                阅读源码计划：HashSet源码分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARTS第十五周"><span class="nav-number">1.</span> <span class="nav-text">ARTS第十五周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-number">1.2.</span> <span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常犯的错误"><span class="nav-number">1.2.1.</span> <span class="nav-text">常犯的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习Java的建议"><span class="nav-number">1.2.2.</span> <span class="nav-text">学习Java的建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐阅读文章"><span class="nav-number">1.2.3.</span> <span class="nav-text">推荐阅读文章</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.3.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">1.4.</span> <span class="nav-text">Share</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

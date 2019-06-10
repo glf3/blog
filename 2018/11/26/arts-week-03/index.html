@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ARTS第三周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 AlgorithmLeetCode 240 搜索二维矩阵123456789101112131415题意：编写一个高效的算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARTS Week 3">
+<meta property="og:url" content="https://lingfeng.art/2018/11/26/arts-week-03/index.html">
+<meta property="og:site_name" content="Lingfeng&#39;s Blog">
+<meta property="og:description" content="ARTS第三周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 AlgorithmLeetCode 240 搜索二维矩阵123456789101112131415题意：编写一个高效的算">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-06T02:35:09.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ARTS Week 3">
+<meta name="twitter:description" content="ARTS第三周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 AlgorithmLeetCode 240 搜索二维矩阵123456789101112131415题意：编写一个高效的算">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingfeng.art/2018/11/26/arts-week-03/">
+
+
+
+
+
+  <title>ARTS Week 3 | Lingfeng's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lingfeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Starry Sky</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2018/11/26/arts-week-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ARTS Week 3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T12:40:13+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ARTS第三周"><a href="#ARTS第三周" class="headerlink" title="ARTS第三周"></a>ARTS第三周</h1><p>　　<strong>ARTS</strong>，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>LeetCode 240 <a href="https://leetcode-cn.com/problems/search-a-2d-matrix-ii/" target="_blank" rel="noopener">搜索二维矩阵</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">题意：</span><br><span class="line">编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：</span><br><span class="line">每行的元素从左到右升序排列。</span><br><span class="line">每列的元素从上到下升序排列。</span><br><span class="line">示例:</span><br><span class="line">现有矩阵 matrix 如下：</span><br><span class="line">[</span><br><span class="line">  [1,   4,  7, 11, 15],</span><br><span class="line">  [2,   5,  8, 12, 19],</span><br><span class="line">  [3,   6,  9, 16, 22],</span><br><span class="line">  [10, 13, 14, 17, 24],</span><br><span class="line">  [18, 21, 23, 26, 30]</span><br><span class="line">]</span><br><span class="line">给定 target = 5，返回 true。</span><br><span class="line">给定 target = 20，返回 false。</span><br></pre></td></tr></table></figure></p>
+<p><strong>分析：</strong></p>
+<blockquote>
+<ol>
+<li>我们可以从upper_bound确定目标所在行坐标的上界upper_bound。</li>
+<li>然后从0～upper_bound遍历矩阵，通过二分查找找到目标是否存在对应的列即可。需要注意的是upper_bound小于0的时候就代表目标不存在。</li>
+<li>总体时间复杂度：确定目标坐在上界行坐标O(logN)，从0~upper_bound最坏时间复杂度O(N)，二分查找目标是否存在O(logM)，总的来说：O(logN) + O(N) * O(logM) = O(N * logM)。</li>
+</ol>
+</blockquote>
+<p><strong>具体代码：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">binary_search</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> nums[], <span class="keyword">final</span> <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y = nums.length - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (x &lt;= y) &#123;</span><br><span class="line">                <span class="keyword">int</span> mid = x + (y - x) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                    x = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">                    y = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> nums[], <span class="keyword">final</span> <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> x = <span class="number">0</span>, y = nums.length;</span><br><span class="line">            <span class="keyword">while</span> (x &lt; y) &#123;</span><br><span class="line">                <span class="keyword">int</span> mid = x + (y - x) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &gt;= target) &#123;</span><br><span class="line">                    y = mid;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    x = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">upper_bound</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> nums[], <span class="keyword">final</span> <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> x = <span class="number">0</span>, y = nums.length;</span><br><span class="line">            <span class="keyword">while</span> (x &lt; y) &#123;</span><br><span class="line">                <span class="keyword">int</span> mid = x + (y - x) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &lt;= target) &#123;</span><br><span class="line">                    x = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    y = mid;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">doSearch</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> [][] matrix, <span class="keyword">final</span> <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">boolean</span> find = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">int</span> length = matrix.length;</span><br><span class="line">            <span class="keyword">int</span> A[] = <span class="keyword">new</span> <span class="keyword">int</span>[matrix.length];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">                A[i] = matrix[i][<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> upper_bound = upper_bound(A, target);</span><br><span class="line">            <span class="keyword">if</span> (upper_bound &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= upper_bound; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (binary_search(matrix[i], target)) &#123;</span><br><span class="line">                    find = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> find;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> [][] matrix, <span class="keyword">final</span> <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> doSearch(matrix, target);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>本周阅读了一篇Medium上的文章<a href="https://medium.com/gusto-engineering/how-to-run-docker-and-get-more-sleep-than-i-did-b844c6966f13" target="_blank" rel="noopener">《How to run Docker and get more sleep than I did》</a><br><br>　　作者在一家名为Gusto的薪酬计算公司工作，该公司的工作主要是用于抵押付款，学分制收费，还有子女抚养费方面的工作。由于工作的性质要求了程序了实时性，准确性。所以每一个提交都需要经过通过Ruby, Python, and Go, 经过成百上千次的运行来测试每一个提交。<br><br>　　他们通过很重量级的Docker化的持续集成流水线(heavily Dockerized continuous integration (CI) pipiline)<br>来完成这个工作。<br><br>　　这篇文章就介绍作者在使用Docker进行持续继承的过程中遇到了一个奇怪的bug，并且介绍了一些关于使用Docker的最佳实践。<br><br>　　而这些最佳实践，都是作者花了成百上千个小时查看Docker日志，修复Docker奔溃，还有定位Bug所在的代码总结而成的最佳实践。<br><br>　　作者通过分析一个线上的bug，然后在本地复现了这个bug，分析这个bug导致的原因是Ruby的不正确使用导致在后台给Docker太大的压力，引出了一个Docker的bug，导致Docker hang住了。然后给读者介绍了Docker的基础概念，Docker能做什么，以及Docker使用中的一些最佳实践。</p>
+<blockquote>
+<p>Docker提供了一种定义，实例化和维护隔离执行环境的机制。它比进程更重，比虚拟机更轻。</p>
+</blockquote>
+<h3 id="Docker中的名词"><a href="#Docker中的名词" class="headerlink" title="Docker中的名词"></a>Docker中的名词</h3><ul>
+<li><strong>Image</strong>（镜像）：不可变的二进制文件存放在磁盘中或者是Dockerhub中，它可以被实例化成容器。<strong>docker images</strong><br></li>
+<li><strong>Container</strong>(容器)：一个实例化的容器，它可以执行任意命令。<strong>docker container ps</strong></li>
+<li><strong>Host System</strong>(宿主系统)：运行容器的底层系统。如果你在笔记本上使用docker的话，那么笔记本就是你的宿主系统。</li>
+<li><strong>Volume</strong>(数据卷)：一个供容器可以访问的文件系统。容器与容器之间可以共享数据卷。</li>
+<li><strong>docker-compose</strong>(一种给用于构造容器的编排工具。通过提供.yml产生Docker命令，总之，可以用docker-compose做的，都可以用docker做)</li>
+</ul>
+<h3 id="Versioning-版本控制"><a href="#Versioning-版本控制" class="headerlink" title="Versioning(版本控制)"></a>Versioning(版本控制)</h3><ul>
+<li>当从一个基础镜像继承而来的时候，需要明确的指出基础吉祥的版本，比如(FROM:ruby)，应该变为(FROM:ruby:2.3.4)</li>
+<li>在docker-compose.yml文件里面，永远明确通过<strong>version</strong> key明确制定docker-compose的版本</li>
+<li>注意定期更新Docker的版本，有时候Docker binary是处在向后兼容的模式。</li>
+</ul>
+<h3 id="Layering-分层"><a href="#Layering-分层" class="headerlink" title="Layering(分层)"></a>Layering(分层)</h3><p>Layers是一些存储在宿主操作系统上的简单的文件，它们可以通过Docker的文件系统驱动去生成最终的镜像。正确使用layer的话可以大大简化发布和debugging的时间。当然，对layer的不熟悉的操作大大增加了没必要的工作。</p>
+<ul>
+<li>Dockerfile里的每一行最终都生成了一个”layer”。</li>
+<li>每一个layer都取决于之前layer。每一个layer都做了缓存，每一个Docker镜像文件都代表着一系列的layer。</li>
+<li>低频率的操作的命令应该尽早出现在Dockerfile中，与此相反，高频率的操作应该写在文件的底下。这会加速Docker的构建过程。</li>
+<li>如果你发现拷贝了很多相同的代码在两个不同的Dockerfiles中，这时可以考虑使用multi-stage（多文件构建）。</li>
+</ul>
+<h3 id="Isolation-隔离"><a href="#Isolation-隔离" class="headerlink" title="Isolation(隔离)"></a>Isolation(隔离)</h3><ul>
+<li>当使用docker-compose的时候，使用参数<strong>–project-name</strong>去构建（为容器生成前缀），参数可以是一些独特的值，比如BUILDKITE_JOB_ID,或一些派生数字。</li>
+<li>当docker-compose结束之后，显示的使用<strong>docker-compose down</strong>或者是<strong>docker stop</strong></li>
+<li>当你必须手动去构建容器的时候，声明数据卷和特定的网络，从而避免了cross-run这种情况。</li>
+</ul>
+<h3 id="Resource-Utilization-资源利用率"><a href="#Resource-Utilization-资源利用率" class="headerlink" title="Resource Utilization(资源利用率)"></a>Resource Utilization(资源利用率)</h3><ul>
+<li>单个的容器是没有资源限制的，它的瓶颈就是kernrl/host操作系统给它的资源。</li>
+<li>docker还有docker-compose支持一些<strong>特定的标示</strong>，从而可以限制一个容器使用的内存，CPU，还有swap</li>
+<li>使用 <em>docker system prune –volumes</em>阶段性的清理我们的镜像，volumes，还有网络。这一些与当前运行的容器没有关联的资源。为了避免一些极端的情况，可以间断性的清理资源，比如可以使用<strong>docker container prune –filter “until=24h”</strong></li>
+</ul>
+<h3 id="Deploying-发布"><a href="#Deploying-发布" class="headerlink" title="(Deploying)发布"></a>(Deploying)发布</h3><p>Dockerhub写的话经常失败，它很可能随机的导致覆盖一些镜像。</p>
+<ul>
+<li>我们自己维护了一个开源Docker Registry通过write-around cache的方式消除了对于Dockerhub的读依赖。</li>
+<li>使用 image_name:latest去获取最新的镜像是一种anti-parrern的方式，这样旧的镜像文件会被覆盖。</li>
+<li>确保你的镜像在Dockerhub上永远都有一份备份。比如gusto/zenpayroll:latest, 然后针对它使用MD5/SHA打一个标签，可以是gusto/zenpayroll:abc123.</li>
+<li>把Docker镜像和layers当做文件存在文件系统里面，然后可以通过引导脚本使用它们。</li>
+</ul>
+<h3 id="Volumes-数据卷"><a href="#Volumes-数据卷" class="headerlink" title="Volumes(数据卷)"></a>Volumes(数据卷)</h3><ul>
+<li>当你在Docker里面开发的时候，在宿主文件系统使用volume in替代ADD‘ing和COPY’ing操作，这个可以大幅降低迭代周期。</li>
+<li>不要把个人的秘密资料放进镜像文件里面。</li>
+<li>在宿主文件系统里面，root拥有的文件是很容易被删除的。所以尽可能的在非root的情况下，使用容器操作进行读取磁盘的操作。</li>
+<li>使用数据卷的时候，首要把数据卷命名为匿名的。</li>
+<li>当你在宿主容器中使用volume in文件的时候，这会引入相同的UIDS/GIDS。所以对待ADD指令需要非常谨慎。</li>
+</ul>
+<h3 id="杂项奇怪的问题"><a href="#杂项奇怪的问题" class="headerlink" title="杂项奇怪的问题"></a>杂项奇怪的问题</h3><ul>
+<li>Docker有时候会hang起来，当在一行中输出很多东西到STDOUT的时候，这是一个公认的很常见的Docker的bug。</li>
+<li>为了避免这个问题，可以把一行个很长的文字，分行输入到STDOUT中去。</li>
+</ul>
+<h3 id="Debugging-Tips-Debug的建议"><a href="#Debugging-Tips-Debug的建议" class="headerlink" title="Debugging Tips(Debug的建议)"></a>Debugging Tips(Debug的建议)</h3><ul>
+<li>确保一些基本的工具存在Dockerfile中，比如，vim/nano,curl等。</li>
+<li>利用图层与FROM。比如一个作为Dockerfile最宝贵的一部分可以使用apt-get install MyCustomPackages &amp;&amp; MoreCustomPackages的话。如果可以把这个放进自己的layers里面的话，那么接下来就可以复用它。</li>
+<li>有时候，如果你发现不知道有一些东西为什么引入的话，那么可以把其他的layers都排除掉，除了那一个你认为可能导致问题的layer，然后在shell中执行它，并且观察安装环境。</li>
+<li><strong>docker exex -it</strong> 允许让你进入一个存在的容器。使用<strong>docker exex -it</strong> 命令去debugging一些破损的容器。</li>
+<li><strong>docker ps</strong>可以打印出所有正在运营的容器。然后使用<strong>docker exex -it</strong> 命令去debug。</li>
+<li>使用参数<strong>–verbose</strong>。它可以解决大部分粗糙的构建问题。</li>
+<li>耐心的去查看很长的出现问题的日志。</li>
+</ul>
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><p>作者通过一个debug的经历，引入了Docker。介绍了Docker的基本概念还有Docker的一些最佳实践。对于我一个这样没有使用过Docker的人来说，理解起来还是比较困难的，接下来的话时间得学习下Docker的主要用来解决什么问题的；还有Docker的一些基本使用与概念。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="记一次开启BBR更新Ubuntu14-04内核遇到的问题与踩过的坑"><a href="#记一次开启BBR更新Ubuntu14-04内核遇到的问题与踩过的坑" class="headerlink" title="记一次开启BBR更新Ubuntu14.04内核遇到的问题与踩过的坑"></a>记一次开启BBR更新Ubuntu14.04内核遇到的问题与踩过的坑</h3><p>　　响应耗子叔的号召，趁着美国那边的黑色星期五购买了一个VPS，然后准备使用VPS+BBR。家里的电脑使用的是Ubuntu14.04，内核是版本是4.2，BBR需要内核版本 &gt;= 4.9。于是需要更新内核。下面记录一下更新中才过的一些坑与遇到的问题。<br></p>
+<blockquote>
+<p>当更新Ubuntu的内核的时候，最好去官网下载对应的内核版本。当安装了最新的内核之后，最好不要把老的内核删除。</p>
+</blockquote>
+<h4 id="第一个问题"><a href="#第一个问题" class="headerlink" title="第一个问题"></a>第一个问题</h4><p>　　当时我在网上随便找了一个内核4.12的版本，然后使用sudo dpkg -i *.deb更新内核，全程没有报错，但重启机器之后，出现了循环登录的情况。后来发现是显卡的NVIDIA驱动与最新的内核不兼容，需要更新驱动。由于进不去Desktop，于是我把新版本的内核卸掉，继续使用旧版本的内核。这里着重提一句，当我们安装上了新版本的内核的时候，不要随便的把旧版本的内核删除，有可能新版本的内核不生效，这样我们还可以继续使用旧版本的内核。<br></p>
+<h4 id="第二个问题"><a href="#第二个问题" class="headerlink" title="第二个问题"></a>第二个问题</h4><blockquote>
+<p>更新NVIDIA显卡驱动不要通过apt-get install去下载，需要去NVIDIA的官方网站下载最新的显卡驱动，然后本地编译。</p>
+</blockquote>
+<p>　　这个时候卸载的最新的内核，然后进入桌面，通过apt-get install NVIDIA的官方驱动，然后继续安装上新的内核，重启。<br>重启之后发现还是进不去桌面，这个时候发现可能是NVIDIA驱动不对导致的，于是卸载了最新的NVIDIA驱动，卸载了最新的内核。老老实实的去NVIDIA的官网下载与电脑显卡对应的内核，我的显卡是NVIDIA的10系列，对应的最新驱动版本是410.78。于是从官网下载到本地。安装新的内核，然后本地安装NVIDIA驱动，这时需要把X Server关闭，并且关闭集成显卡驱动。然后重启电脑。<br></p>
+<h4 id="第三个问题"><a href="#第三个问题" class="headerlink" title="第三个问题"></a>第三个问题</h4><blockquote>
+<p>安装过程中注意查看安装日志，因为有的时候可能显示正常安装了，通过命令查看也安装成功，但这个时候可能还会有一些问题出现，这个时候就要注意有没有报错日志了。</p>
+</blockquote>
+<p>　　重启之后发现还是进不去桌面，于是又走了装显卡驱动的过程。在过程中发现安装有报错，发错是发现找不到对应的一个文件linux-headers，后来才发现原来我安装的新的内核文件的它不全，还差了一个.deb包，所以又去官网下了全部内核文件进行编译。<br>有了之前的教训，这个时候就会注意查看安装日志，安装内核的时候发现有报错，细看一下原来是内核编译的gcc必须大于5.0才行，于是又安装了gcc-5 g++5，这个可以通过apt-get install去安装。安装了新的编译环境并且更新内核之后重启电脑。发现还是进不去桌面，这时又准备重新安装NVIDIA显卡驱动，在安装显卡驱动的过程中发现有报错，说内核的编译环境是gcc-5.3.6而NVIDIA的环境是需要的环境是gcc-6.0+，于是这个时候，就把gcc更新到6.0+，然后重新编译NVIDIA显卡驱动。<br><br>　　在安装的过程中，NVIDIA显卡驱动会提示要不要添加DKMS，第一次选择了添加，然后它提示当前的gcc版本与DKMS需要的不符合，是否继续安装，当时选择安装，后来发现选择之后NVIDIA驱动并没有更新成功。于是再一次安装NVIDIA驱动的时候选择不需要DKMS，这时候它会提示当前的编译环境是gcc-6.3.4，与NVIDIA需要的编译环境6.2.3不一致，是否继续，我想了一下gcc编译环境版本差别不大，应该不会有什么问题，于是选择继续，之后再进桌面就发现成功了。使用uname -r 查看内核还有nvidia-smi查看显卡版本，都是正确的了。<br><br>　　之后我们就可以开心地开启BBR使用VPS了。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>下载驱动的更新的话去尽量去官网上下载。</li>
+<li>遇到问题尽量不要先去Google，先查看有没有具体的报错日志，然后针对性的去搜索，解决。</li>
+<li>要有耐心。</li>
+</ul>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><h3 id="一些零散的思考与看法"><a href="#一些零散的思考与看法" class="headerlink" title="一些零散的思考与看法"></a>一些零散的思考与看法</h3><h4 id="人文知识的学习"><a href="#人文知识的学习" class="headerlink" title="人文知识的学习"></a>人文知识的学习</h4><blockquote>
+<p>我觉得理科生得具备一定的人文知识。平时可以把80%的精力放在专业的学习上，20%时间花在其他书籍的阅读，比如哲学，文学，以及历史都行。</p>
+</blockquote>
+<p>　　这样我们在除了知道自己所学专业的知识，也能够享受人文情趣。当我们未来对专业之外的领域感兴趣的时候，也可以迅速的学习其他领域的知识。<br></p>
+<h4 id="开放包容的心态"><a href="#开放包容的心态" class="headerlink" title="开放包容的心态"></a>开放包容的心态</h4><p>　　从事客户端工作的同学可以学习一些和前端、服务端的知识，服务端的同学可以学一些客户端和前端的知识，这样可以让自己的技术栈和视野都变得开阔。<br><br>　　多交朋友，老的少的都行，说不定可以改变自己的一些过去的看法与观念。<br><br>　　当我们具有包容的心态，持续学习的能力以及深厚的专业知识，持久的阅读习惯的时候，未来的道路也会越走越宽。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/arts-week-02/" rel="next" title="ARTS Week 2">
+                <i class="fa fa-chevron-left"></i> ARTS Week 2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/11/arts-week-04/" rel="prev" title="ARTS Week 4">
+                ARTS Week 4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://wx4.sinaimg.cn/mw690/d0ff62e4ly8fvxaqshm5wj20ro0ro0vw.jpg" alt="蜂岺膏">
+            
+              <p class="site-author-name" itemprop="name">蜂岺膏</p>
+              <p class="site-description motion-element" itemprop="description">程序员 | 平时喜欢拍星空，看书，弹吉他，打篮球。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+<br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=533783092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ARTS第三周"><span class="nav-number">1.</span> <span class="nav-text">ARTS第三周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-number">1.2.</span> <span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker中的名词"><span class="nav-number">1.2.1.</span> <span class="nav-text">Docker中的名词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Versioning-版本控制"><span class="nav-number">1.2.2.</span> <span class="nav-text">Versioning(版本控制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layering-分层"><span class="nav-number">1.2.3.</span> <span class="nav-text">Layering(分层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Isolation-隔离"><span class="nav-number">1.2.4.</span> <span class="nav-text">Isolation(隔离)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-Utilization-资源利用率"><span class="nav-number">1.2.5.</span> <span class="nav-text">Resource Utilization(资源利用率)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploying-发布"><span class="nav-number">1.2.6.</span> <span class="nav-text">(Deploying)发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volumes-数据卷"><span class="nav-number">1.2.7.</span> <span class="nav-text">Volumes(数据卷)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#杂项奇怪的问题"><span class="nav-number">1.2.8.</span> <span class="nav-text">杂项奇怪的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debugging-Tips-Debug的建议"><span class="nav-number">1.2.9.</span> <span class="nav-text">Debugging Tips(Debug的建议)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下"><span class="nav-number">1.2.10.</span> <span class="nav-text">总结一下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.3.</span> <span class="nav-text">Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记一次开启BBR更新Ubuntu14-04内核遇到的问题与踩过的坑"><span class="nav-number">1.3.1.</span> <span class="nav-text">记一次开启BBR更新Ubuntu14.04内核遇到的问题与踩过的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个问题"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">第一个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个问题"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">第二个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个问题"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">第三个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">1.4.</span> <span class="nav-text">Share</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一些零散的思考与看法"><span class="nav-number">1.4.1.</span> <span class="nav-text">一些零散的思考与看法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#人文知识的学习"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">人文知识的学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开放包容的心态"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">开放包容的心态</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">蜂岺膏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
