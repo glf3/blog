@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lingfeng&#39;s Blog">
 <meta property="og:description" content="ARTS第十九周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题28. 实现strStr()题意：1234567891011121314151617181">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-21T09:42:04.067Z">
+<meta property="og:updated_time" content="2019-06-26T04:45:38.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARTS Week 19">
 <meta name="twitter:description" content="ARTS第十九周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题28. 实现strStr()题意：1234567891011121314151617181">
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-21T17:42:04+08:00">
-                2019-06-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-26T12:45:38+08:00">
+                2019-06-26
               </time>
             
           </span>
@@ -436,7 +436,7 @@
 <h3 id="符合性"><a href="#符合性" class="headerlink" title="符合性"></a>符合性</h3><p>今天对于计算机系统来说有越来越多的法规和合规。如果你的公司为欧洲市场服务，那么你得遵循GDPR。如果你希望在美国从事医疗保险服务，那你得遵循HIPPA。所有这些合规为你的系统和依赖添加了需求。和你保证存在性一样，你需要保证你的依赖同样满足一样的法规和合规。</p>
 <h3 id="UX-用户体验-Kafka-Streams-VS-Flink"><a href="#UX-用户体验-Kafka-Streams-VS-Flink" class="headerlink" title="UX(用户体验): Kafka Streams VS Flink"></a>UX(用户体验): Kafka Streams VS Flink</h3><p>当你设计一个框架并且提供给代码给他人去使用，这个时候用户体验比托管SaaS时更为重要。当用户使用你的框架的时候，它们也需要欢迎那个依赖。<br><br>那Kafka Streams和Apache Flink作为例子。我研究了它们基于Kafka建造一个流处理管道。一些简单的上下i一个开源的分布式队列系统，Kafka Streams是一个基于Kafka的框架，它能够在Kafka中处理数据，Flink可以完成同样的事情。<br><br>Kafka还有Flink有着大量的利弊，但是让我做出决定的是它们的依赖。Kafka Streams仅仅需要Kafka，这个我们已经拥有了。而Flink则需要Zookeeper集群实现HA(高可用)。我们没有多余的资源去管理这样的集群，因此我们选择了Kafka Streams而不是Flink。</p>
 <h3 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h3><p>添加一个新的依赖同样带来了隐藏的维护性成本，比如多余的指标，监控，还有预警，失败情景还有自动化。依赖可以变得很慢，或者失败，而你的系统需要去定位并解决这个问题。当你发布了你的系统的时候，你的持续交付系统需要准备好，包括依赖，所以当你引入了新的依赖的时候，意味着为你的自动化引入了新的逻辑，所以准备好这些工作吧。</p>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>本周计划阅读ArrayBlockingQueue并写一篇关于ArrayBlockingQueue的文章。<br><br>// TODO</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>本周阅读了ArrayBlockingQueue的源码，并写一篇关于ArrayBlockingQueue的文章<a href="https://lingfeng.art/2019/06/26/analyze-array-blocking-queue/">阅读源码计划：ArrayBlockingQueue源码分析</a></p>
 <h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>本周分享两篇文章，其中一篇是关于Spring MVC，一篇关于Tomcat。</p>
 <h3 id="How-Spring-Web-MVC-Really-Works"><a href="#How-Spring-Web-MVC-Really-Works" class="headerlink" title="How Spring Web MVC Really Works"></a><a href="https://stackify.com/spring-mvc/" target="_blank" rel="noopener">How Spring Web MVC Really Works</a><br></h3><p>这篇文章的内容如下所示：</p>
 <ul>
