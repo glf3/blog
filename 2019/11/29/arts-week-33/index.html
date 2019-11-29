@@ -83,11 +83,11 @@
 <meta name="keywords" content="ARTS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARTS Week 33">
-<meta property="og:url" content="https://lingfeng.art/2019/11/14/arts-week-33/index.html">
+<meta property="og:url" content="https://lingfeng.art/2019/11/29/arts-week-33/index.html">
 <meta property="og:site_name" content="Lingfeng&#39;s Blog">
 <meta property="og:description" content="ARTS第三十三周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题19. 删除链表的倒数第N个节点题意：1234567891011给定一个链表，删除链表的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-14T02:37:41.774Z">
+<meta property="og:updated_time" content="2019-11-29T08:55:03.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARTS Week 33">
 <meta name="twitter:description" content="ARTS第三十三周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。 Algorithm本周算法题19. 删除链表的倒数第N个节点题意：1234567891011给定一个链表，删除链表的">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://lingfeng.art/2019/11/14/arts-week-33/">
+  <link rel="canonical" href="https://lingfeng.art/2019/11/29/arts-week-33/">
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/11/14/arts-week-33/">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/11/29/arts-week-33/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="蜂岺膏">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T10:17:55+08:00">
-                2019-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T10:17:55+08:00">
+                2019-11-29
               </time>
             
 
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-14T10:37:41+08:00">
-                2019-11-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-29T16:55:03+08:00">
+                2019-11-29
               </time>
             
           </span>
@@ -367,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/14/arts-week-33/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/14/arts-week-33/" itemprop="commentCount"></span>
+                <a href="/2019/11/29/arts-week-33/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/arts-week-33/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,7 +376,7 @@
 
           
           
-             <span id="/2019/11/14/arts-week-33/" class="leancloud_visitors" data-flag-title="ARTS Week 33">
+             <span id="/2019/11/29/arts-week-33/" class="leancloud_visitors" data-flag-title="ARTS Week 33">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,7 +417,13 @@
 <p><strong>具体代码</strong>：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">removeNthFromEnd</span><span class="params">(head *ListNode, n <span class="keyword">int</span>)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> head == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> head</span><br><span class="line">	&#125;</span><br><span class="line">	node := head</span><br><span class="line">	length := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> node.Next == <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		node = node.Next</span><br><span class="line">		length += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> n == length &#123;</span><br><span class="line">		head = head.Next</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		index := <span class="number">1</span></span><br><span class="line">		<span class="keyword">for</span> low, high := head, head.Next; high != <span class="literal">nil</span>; &#123;</span><br><span class="line">			<span class="keyword">if</span> n == length-index &#123;</span><br><span class="line">				low.Next = high.Next</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			low = low.Next</span><br><span class="line">			high = high.Next</span><br><span class="line">			index += <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>//TODO</p>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>// TODO</p>
-<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>//TODO</p>
+<h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><p>本周分享一篇文章<a href="https://mp.weixin.qq.com/s?__biz=MzA5MDA5Njk0NQ==&amp;mid=2456618900&amp;idx=1&amp;sn=ebbd4a2f3f8f42f71fa0925b70a9fb1e&amp;chksm=878973cab0fefadc571c25cb36a9ef24a6061ccb12e6f0eded4697e0fcd70a14d4f16d6d58df&amp;token=776365794&amp;lang=zh_CN&amp;pass_ticket=8kuHeAmjdVlfkSqOpzfKaRgMfXf4%2FGHqEotlnrXjqk5VknnbN8xvxnxzzEddGC0A#rd" target="_blank" rel="noopener">《消息中间件的四种投递模式对比》</a><br><br>文章介绍了消息中间件投递消息的四种模型的特性与区别。</p>
+<ul>
+<li>PTP模型</li>
+<li>Pub/Sub模型</li>
+<li>Partition模型</li>
+<li>Transfer模型</li>
+</ul>
 <hr>
 
       
@@ -439,7 +445,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lingfeng.art/2019/11/14/arts-week-33/" title="ARTS Week 33">https://lingfeng.art/2019/11/14/arts-week-33/</a>
+    <a href="https://lingfeng.art/2019/11/29/arts-week-33/" title="ARTS Week 33">https://lingfeng.art/2019/11/29/arts-week-33/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
