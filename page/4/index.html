@@ -284,6 +284,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/05/29/analyze-hashset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="蜂岺膏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingfeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/analyze-hashset/" itemprop="url">阅读源码计划：HashSet源码分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T10:28:06+08:00">
+                2019-05-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/29/analyze-hashset/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/29/analyze-hashset/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/05/29/analyze-hashset/" class="leancloud_visitors" data-flag-title="阅读源码计划：HashSet源码分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          HashSet阅读源码的JDK版本基于JDK1.8123public class HashSet&lt;E&gt;    extends AbstractSet&lt;E&gt;    implements Set&lt;E&gt;, Cloneable, java.io.Serializable
+HashSet继承自AbstractSet，实现了Set&lt; E &gt;接口，实现了Collection类需要支持的基本操作，如:
+
+contains(Object o);
+add(E e)
+remove(Object o)
+
+关键数据结构12// HashMapprivate transie
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/29/analyze-hashset/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/05/26/arts-week-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,8 +519,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-21T13:08:45+08:00">
-                2019-06-21
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:25+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -513,8 +701,8 @@ Algorithm本周算法题783. 二叉搜索树结点最小距离题意：123456789
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-12T11:05:57+08:00">
-                2019-06-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -695,8 +883,8 @@ EventBus简介Android中传统的线程间通信方式包括：Binder、Handler�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-12T11:21:19+08:00">
-                2019-06-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -888,8 +1076,8 @@ EventBus简介Android中传统的线程间通信方式包括：Binder、Handler�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-21T13:08:40+08:00">
-                2019-06-21
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:25+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1070,8 +1258,8 @@ Algorithm本周算法题89. 格雷编码题意：1234567891011121314151617181920
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-12T11:07:40+08:00">
-                2019-06-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1255,8 +1443,8 @@ boolean containsValue(Object val
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-21T13:08:35+08:00">
-                2019-06-21
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:25+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1437,8 +1625,8 @@ Algorithm本周算法题516. 最长回文子序列题意：123456789101112131415
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-15T16:46:05+08:00">
-                2019-11-15
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:28+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1626,8 +1814,8 @@ Redis是一种非关系型的数据库，它是一个key-value存储系统。和
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-12T11:05:24+08:00">
-                2019-06-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1814,8 +2002,8 @@ containsKey(Object key)
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-12T11:09:24+08:00">
-                2019-06-12
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-18T16:13:24+08:00">
+                2020-08-18
               </time>
             
           </span>
@@ -1939,188 +2127,6 @@ Network也是一个接口类，它的实现类是BasicNetwork，它持有
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lingfeng.art/2019/04/27/arts-week-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="蜂岺膏">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lingfeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/27/arts-week-12/" itemprop="url">ARTS Week 12</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T21:54:16+08:00">
-                2019-04-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-21T13:08:29+08:00">
-                2019-06-21
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ARTS/" itemprop="url" rel="index">
-                    <span itemprop="name">ARTS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/27/arts-week-12/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/27/arts-week-12/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/27/arts-week-12/" class="leancloud_visitors" data-flag-title="ARTS Week 12">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ARTS第十二周　　ARTS，即：每周完成一个ARTS：每周至少做一个 leetcode 的算法题、阅读并点评至少一篇英文技术文章、学习至少一个技术技巧、分享一篇有观点和思考的技术文章，至少坚持一年。（也就是 Algorithm、Review、Tip、Share 简称ARTS）。
-Algorithm本周算法题5. 最长回文子串题意：123456789给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。示例 1：输入: &quot;babad&quot;输出: &quot;bab&quot;注意: &quot;aba&quot; 也是一个有效答案。示例 2：输
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/27/arts-week-12/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2173,7 +2179,7 @@ Algorithm本周算法题5. 最长回文子串题意：123456789给定一个字�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
